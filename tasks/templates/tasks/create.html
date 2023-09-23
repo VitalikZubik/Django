@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Добавление задачи{% endblock %}
+
+
+{% block content %}
+    <div class="wrapper">
+        <h1>Добавление задачи</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.name }}<br>
+            {{ form.description }}<br>
+            {{ form.date_create }}<br>
+            {{ form.deadline }}<br>
+            {{ form.user }}<br>
+            <span>{{ error }}</span><br>
+            <button class="btn_form" type="submit">Добавить задачу</button>
+        </form>
+    </div>
+{% endblock %}

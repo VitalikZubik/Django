@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Редактирование задачи{% endblock %}
+
+
+{% block content %}
+    <div class="wrapper">
+        <h1>Редактирование задачи</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.name }}<br>
+            {{ form.description }}<br>
+            {{ form.date_create }}<br>
+            {{ form.deadline }}<br>
+            {{ form.execution_status }}<br>
+            {{ form.date_execution }}<br>
+            {{ form.user }}<br>
+            <span>{{ error }}</span><br>
+            <button class="btn_form" type="submit">Редактировать задачу</button>
+        </form>
+    </div>
+{% endblock %}
