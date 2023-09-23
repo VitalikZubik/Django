@@ -1,0 +1,29 @@
+{% extends 'tasks/layout.html' %}
+
+{% block title %}Задачи{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <h1>Задачи</h1>
+        <div>Название</div>
+        <div>Описание</div>
+        <div>Дата создания</div>
+        <div>Срок выполнения</div>
+        <div>Статус выполнения</div>
+        <div>Дата выполнения</div>
+
+        {% for task in tasks %}
+            <div>{{task.name}}</div>
+            <div>{{task.description}}</div>
+            <div>{{task.date_create}}</div>
+            <div>{{task.deadline}}</div>
+            <div>{{task.execution_status}}</div>
+            {% if  task.date_execution != None %}
+                <div>{{task.date_execution}}</div>
+            {% else %}
+                <div></div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,5 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
+from .models import Tasks
 
 def index(request):
-    return HttpResponse('Привет мир')
+    tasks = Tasks.objects.all()
+    return render(request, 'tasks/index.html',{
+        'tasks' : tasks
+    })
